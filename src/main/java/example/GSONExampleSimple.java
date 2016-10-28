@@ -1,18 +1,19 @@
-package objects_for_test;
+package example;
 
 import com.google.gson.Gson;
+import parser.JSONConverter;
+import parser.JSONConverterImpl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.util.*;
 
 /**
  * Created by nagornyyalek on 26.10.2016.
  */
-public class GSONExample {
+public class GSONExampleSimple {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
 
         String str = "Ivan";
 
@@ -57,11 +58,10 @@ public class GSONExample {
         System.out.println("stringArray: " + gson.toJson(stringArray));
         System.out.println("intList: " + gson.toJson(intList));
         System.out.println("stringList: " + gson.toJson(stringList));
-        System.out.println("intHashMap<String, String>: " + gson.toJson(intHashMap));
+        System.out.println("intHashMap<String, Integer>: " + gson.toJson(intHashMap));
         System.out.println("stringHashMap<String, String>: " + gson.toJson(stringHashMap));
 
         /*
-
         int: 3
         double: 3.5
         char: "c"
@@ -72,8 +72,6 @@ public class GSONExample {
         stringList: ["Ivan","Petro","","12"]
         intHashMap<String, String>: {"key1":11,"key2":21,"key3":33}
         stringHashMap<String, String>: {"key1":"value1","key2":"value2","key3":"value3"}
-
         */
-
     }
 }
